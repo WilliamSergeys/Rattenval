@@ -5,6 +5,7 @@ en omgekeert zonder te stopp.
 
 #include <Servo.h>
 
+int pinguin;
 Servo myservo;  // maakt een servo object om de sevo motor te kunnen controleren
 // twelve servo objects can be created on most boards
 int ledPin = 8;// define LED Interface
