@@ -2,7 +2,7 @@
 Dit is een programma om een sevo motor te testen. Hier gaat de servo voortdurent van 0 tot 180 graden draaien
 en omgekeert zonder te stopp.
 */
-
+#include <Arduino.h>
 #include <Servo.h>
 
 int pinguin;
@@ -34,7 +34,7 @@ void loop()
 {
   sensorVal = digitalRead(sensorPin) ;// digital interface will be assigned a value of 3 to read val
 
-  if (sensorVal == HIGH) // When the obstacle avoidance sensor detects a signal, LED flashes
+  if (sensorVal == LOW) // When the obstacle avoidance sensor detects a signal, LED flashes
   {
     Serial.println("Sensor triggered!");
     digitalWrite(ledPin, HIGH); // test led
