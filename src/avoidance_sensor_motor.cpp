@@ -1,13 +1,21 @@
 /*
-Dit is een programma om een sevo motor te testen. Hier gaat de servo voortdurent van 0 tot 180 graden draaien
-en omgekeert zonder te stopp.
+in dit project gaan we een elektronische ratten/muizen-val maken
+wanneer de sensor iets in de val dedecteert
+dan draait de servomotor 90° waardoor de deur dichtvalt, de servomotor draait ook onmiddelijk terug
+wanneer de pushbotton is ingedrukt, en dus de deur dicht is, geeft de relait voor een 20 tal seconden
+230 V gelijkstroom door waardoor de rat sterft
+
 */
+
 #include <Arduino.h>
 #include <Servo.h>
 
 
 Servo myservo;  // maakt een servo object om de sevo motor te kunnen controleren
 // twelve servo objects can be created on most boards
+int relait = 7;// drukknop op pin 7
+int drukknop = 12; // de drukknop zit in pin 12
+int statusknop = 0; // memory plaatje
 int ledPin = 8;// define LED Interface
 int sensorPin = 3; // define the obstacle avoidance sensor interface
 int sensorVal = 0;// define numeric variables val -> slaagt knopstatus op
@@ -21,6 +29,10 @@ void setup()
   Serial.begin(9600);
   Serial.println("Program started!");
   Serial.println("Starting setup ...");
+
+  pinMode(relait, OUTPUT); // relait is OUTPUT
+  digitalWrite(relait, LOW); // Relait begint uit
+  pinMode(drukknop,INPUT); //De drukknop is een input
 
   myservo.attach(9);  // maakt de servo op pin 9 vast aan het servo object
   pinMode(ledPin, OUTPUT) ;// define LED as output interface
@@ -63,4 +75,19 @@ void loop()
 
     digitalWrite(ledPin, LOW);
   }
+
+  while  (sensorVal == HIGH) {
+    statusknop = digitalRead(drukknop); //leest of drukknop ingedrukt is
+  }
+
+   if(statusknop == HIGH) { //als de status hoog is brand het lampje
+
+     digitalWrite(relait, HIGH);
+
+     delay(20000);// relait geeft 20 sec elec door
+
+     digitalWrite(relait, LOW);
+  } //als de status hoog is brand het lampje
+
+
 }
