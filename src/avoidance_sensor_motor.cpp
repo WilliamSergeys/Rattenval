@@ -87,7 +87,7 @@ void loop()
      delay(20000);// relait geeft 20 sec elec door
 
      digitalWrite(relait, LOW);
-  } //als de status hoog is brand het lampje
+  }
 
 
 }
