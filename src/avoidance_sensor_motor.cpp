@@ -76,7 +76,7 @@ void loop()
     digitalWrite(ledPin, LOW);
   }
 
-  while  (sensorVal == HIGH) {
+  while  (sensorVal == LOW) {
     statusknop = digitalRead(drukknop); //leest of drukknop ingedrukt is
   }
 
