@@ -16,10 +16,10 @@ Servo myservo;  // maakt een servo object om de sevo motor te kunnen controleren
 int relait = 7;// drukknop op pin 7
 int drukknop = 12; // de drukknop zit in pin 12
 int statusknop = 0; // memory plaatje
-int ledPin = 8;// define LED Interface
+int ledPin = 8; // define LED Interface
 int sensorPin = 3; // define the obstacle avoidance sensor interface
-int sensorVal = 0;// define numeric variables val -> slaagt knopstatus op
-int pos = 0;    // variabele om de plaats van de servo bij te houden.
+int sensorVal = 0; // define numeric variables val -> slaagt knopstatus op
+int pos = 0; // variabele om de plaats van de servo bij te houden.
 
 int stepDelay = 1; // pauzes tussen hoekveranderingen van servo (één graad)
 int resetDelay = 1000; // pauze vooraller systeem zich reset en opnieuw naar sensor luisterd
@@ -44,7 +44,7 @@ void setup()
 
 void loop()
 {
-  sensorVal = digitalRead(sensorPin) ;// digital interface will be assigned a value of 3 to read val
+  sensorVal = digitalRead(sensorPin); // digital interface will be assigned a value of 3 to read val
 
   if (sensorVal == LOW) // When the obstacle avoidance sensor detects a signal, LED flashes
   {
